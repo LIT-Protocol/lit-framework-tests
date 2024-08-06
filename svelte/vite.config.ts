@@ -30,4 +30,31 @@ export default defineConfig({
             "process",
         ],
     },
+    build: {
+        rollupOptions: {
+            output: {
+                globals: {
+                    "js-sha3": "sha3",
+                },
+            },
+            plugins: [
+                {
+                    name: "fix-import-sha3",
+                    transform(code, id) {
+                        if (
+                            id.includes(
+                                "node_modules/@ethersproject/keccak256/lib.esm/index.js"
+                            )
+                        ) {
+                            return code.replace(
+                                'import sha3 from "js-sha3";',
+                                'import * as sha3 from "js-sha3";'
+                            );
+                        }
+                        return code;
+                    },
+                },
+            ],
+        },
+    },
 });

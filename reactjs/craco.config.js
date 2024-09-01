@@ -1,7 +1,6 @@
 module.exports = {
     webpack: {
         configure: (webpackConfig, { env, paths }) => {
-            // Modify the rules
             webpackConfig.module.rules = webpackConfig.module.rules.map(
                 (rule) => {
                     if (Array.isArray(rule.oneOf)) {
@@ -15,7 +14,6 @@ module.exports = {
                 }
             );
 
-            // Add fallbacks
             webpackConfig.resolve.fallback = {
                 ...webpackConfig.resolve.fallback,
                 buffer: require.resolve("buffer/"),

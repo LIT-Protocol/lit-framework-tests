@@ -1,0 +1,12 @@
+{
+  "name": "lit-configuration-guides",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test-lit": "nx run-many --target=test-lit --all --parallel",
+    "update-lit": "nx run-many --target=update-lit --all --parallel"
+  },
+  "devDependencies": {
+    "nx": "19.6.3"
+  }
+}

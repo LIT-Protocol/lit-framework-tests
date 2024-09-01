@@ -1,0 +1,12 @@
+{
+    "name": "lit",
+    "root": "lit",
+    "targets": {
+        "update-lit": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "cd lit && LATEST_VERSION=$(npm show @lit-protocol/lit-node-client version) && npm pkg set dependencies.@lit-protocol/lit-node-client=^$LATEST_VERSION"
+            }
+        }
+    }
+}
